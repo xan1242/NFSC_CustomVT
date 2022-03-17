@@ -5,11 +5,20 @@
 ///////////////////////////////////////////////////////////////////////////////
 #define VIGNETTE_SCALE		0.50
 
-// comment out to disable ReShade FakeHDR pass
+// uncomment to enable ReShade FakeHDR pass
 //#define USE_FAKEHDR
 #define FAKEHDR_POWER 1.1
 #define FAKEHDR_RADIUS1 0.848
 #define FAKEHDR_RADIUS2 0.848
+
+// uncomment to disable bloom rendering
+//#define BLOOM_DISABLE
+
+// uncomment to enable bloom texture render to screen
+//#define BLOOM_DEBUG
+
+// you can tune bloom in screeneffect.fx
+// enter then exit video options to recompile shader
 
 
 #include "global.h"

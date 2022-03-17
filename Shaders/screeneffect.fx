@@ -6,6 +6,11 @@
 
 #include "global.h"
 
+// you can tune the bloom parameters here, recommended to first enable BLOOM_DEBUG in visualtreatment.fx
+// enter then exit video options to recompile shader
+#define BLOOM_EXPOSURE 6.0
+#define BLOOM_BRIGHTPASS_THRESHOLD 1.0
+
 ///////////////////////////////////////////////////////////////////////////////
 
 static const int	MAX_SAMPLES				= 16;	// Maximum texture grabs
@@ -282,13 +287,13 @@ float4 PS_DownScaleForBloom(in float2 vScreenPosition :	TEXCOORD0 )	: COLOR
     sample += cavSampleWeights[11] * tex2D( DIFFUSE_SAMPLER, vScreenPosition + cavSampleOffsets[11].xy ).xyz;
     sample += cavSampleWeights[12] * tex2D( DIFFUSE_SAMPLER, vScreenPosition + cavSampleOffsets[12].xy ).xyz;
 
-    sample = float4(tonemap(sample.rgb, 6.0), 1.0); // exposure
+    sample = float4(tonemap(sample.rgb, BLOOM_EXPOSURE), 1.0); // exposure
 
     sample = DeCompressColourSpace(sample);
 
     // Operate on the max colour channel to remove the hue blowout and blue tinge
 	// exhibited by the original filter
-	const float kBrightPassThreshold = 1.0;
+	const float kBrightPassThreshold = BLOOM_BRIGHTPASS_THRESHOLD;
 	float maxChannel = max(max(sample.x, sample.y), sample.z);
 	maxChannel -= kBrightPassThreshold;
 	//maxChannel = max(maxChannel, 0.0f);
