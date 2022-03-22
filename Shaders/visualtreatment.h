@@ -60,101 +60,101 @@ shared float4 cvTextureOffset	: cvTextureOffset;
 DECLARE_TEXTURE(DIFFUSEMAP_TEXTURE)				// needed for the PC
 sampler	DIFFUSE_SAMPLER =	sampler_state
 {
-	ASSIGN_TEXTURE(DIFFUSEMAP_TEXTURE)			   // needed for the PC
-	AddressU = CLAMP;
-	AddressV = CLAMP;
-	MIPFILTER =	NONE;
-	MINFILTER =	LINEAR;
-	MAGFILTER =	LINEAR;
+    ASSIGN_TEXTURE(DIFFUSEMAP_TEXTURE)			   // needed for the PC
+    AddressU = CLAMP;
+    AddressV = CLAMP;
+    MIPFILTER =	NONE;
+    MINFILTER =	LINEAR;
+    MAGFILTER =	LINEAR;
 };
 
 DECLARE_TEXTURE(MOTIONBLUR_TEXTURE)				// needed for the PC
 sampler	MOTIONBLUR_SAMPLER = sampler_state
 {
-	ASSIGN_TEXTURE(MOTIONBLUR_TEXTURE)			   // needed for the PC
-	AddressU = CLAMP;//BORDER;
-	AddressV = CLAMP;//BORDER;
-	MIPFILTER =	NONE;
-	MINFILTER =	LINEAR;
-	MAGFILTER =	LINEAR;
+    ASSIGN_TEXTURE(MOTIONBLUR_TEXTURE)			   // needed for the PC
+    AddressU = CLAMP;//BORDER;
+    AddressV = CLAMP;//BORDER;
+    MIPFILTER =	NONE;
+    MINFILTER =	LINEAR;
+    MAGFILTER =	LINEAR;
 };
 
 DECLARE_TEXTURE(DEPTHBUFFER_TEXTURE)				// needed for the PC
 sampler	DEPTHBUFFER_SAMPLER = sampler_state
 {
-	ASSIGN_TEXTURE(DEPTHBUFFER_TEXTURE)			   // needed for the PC
-	AddressU = CLAMP;
-	AddressV = CLAMP;
-	MIPFILTER =	LINEAR;
-	MINFILTER =	LINEAR;
-	MAGFILTER =	LINEAR;
+    ASSIGN_TEXTURE(DEPTHBUFFER_TEXTURE)			   // needed for the PC
+    AddressU = CLAMP;
+    AddressV = CLAMP;
+    MIPFILTER =	LINEAR;
+    MINFILTER =	LINEAR;
+    MAGFILTER =	LINEAR;
 };
 
 DECLARE_TEXTURE(MISCMAP2_TEXTURE)				// needed for the PC
 sampler	MISCMAP2_SAMPLER = sampler_state
 {
-	ASSIGN_TEXTURE(MISCMAP2_TEXTURE)			   // needed for the PC
-	AddressU = CLAMP;
-	AddressV = WRAP;		// Use mirror for split screen so the vignette works
-	MIPFILTER =	NONE;
-	MINFILTER =	LINEAR;
-	MAGFILTER =	LINEAR;
+    ASSIGN_TEXTURE(MISCMAP2_TEXTURE)			   // needed for the PC
+    AddressU = CLAMP;
+    AddressV = WRAP;		// Use mirror for split screen so the vignette works
+    MIPFILTER =	NONE;
+    MINFILTER =	LINEAR;
+    MAGFILTER =	LINEAR;
 };
 
 DECLARE_TEXTURE(MISCMAP3_TEXTURE)				// needed for the PC
 sampler	BLOOM_SAMPLER = sampler_state
 {
-	ASSIGN_TEXTURE(MISCMAP3_TEXTURE)			   // needed for the PC
-	AddressU = CLAMP;
-	AddressV = CLAMP;
-	MIPFILTER =	NONE;
-	MINFILTER =	LINEAR;
-	MAGFILTER =	LINEAR;
+    ASSIGN_TEXTURE(MISCMAP3_TEXTURE)			   // needed for the PC
+    AddressU = CLAMP;
+    AddressV = CLAMP;
+    MIPFILTER =	NONE;
+    MINFILTER =	LINEAR;
+    MAGFILTER =	LINEAR;
 };
 
 DECLARE_TEXTURE(MISCMAP6_TEXTURE)				// needed for the PC
 sampler	MISCMAP6_SAMPLER = sampler_state
 {
-	ASSIGN_TEXTURE(MISCMAP6_TEXTURE)			   // needed for the PC
-	AddressU = CLAMP;
-	AddressV = CLAMP;
-	MIPFILTER =	LINEAR;
-	MINFILTER =	LINEAR;
-	MAGFILTER =	LINEAR;
+    ASSIGN_TEXTURE(MISCMAP6_TEXTURE)			   // needed for the PC
+    AddressU = CLAMP;
+    AddressV = CLAMP;
+    MIPFILTER =	LINEAR;
+    MINFILTER =	LINEAR;
+    MAGFILTER =	LINEAR;
 };
 
 DECLARE_TEXTURE(VOLUMEMAP_TEXTURE)				// needed for the PC
 sampler VOLUMEMAP_SAMPLER = sampler_state
 {
-	ASSIGN_TEXTURE(VOLUMEMAP_TEXTURE)			   // needed for the PC
-	AddressU = CLAMP;
-	AddressV = CLAMP;
-	AddressW = CLAMP;
-	MIPFILTER =	NONE;
-	MINFILTER =	LINEAR;
-	MAGFILTER =	LINEAR;
+    ASSIGN_TEXTURE(VOLUMEMAP_TEXTURE)			   // needed for the PC
+    AddressU = CLAMP;
+    AddressV = CLAMP;
+    AddressW = CLAMP;
+    MIPFILTER =	NONE;
+    MINFILTER =	LINEAR;
+    MAGFILTER =	LINEAR;
 };
 
 DECLARE_TEXTURE(BLENDVOLUMEMAP_TEXTURE)				// needed for the PC
 sampler BLENDVOLUMEMAP_SAMPLER = sampler_state
 {
-	ASSIGN_TEXTURE(BLENDVOLUMEMAP_TEXTURE)			   // needed for the PC
-	AddressU = CLAMP;
-	AddressV = CLAMP;
-	AddressW = CLAMP;
-	MIPFILTER =	NONE;
-	MINFILTER =	LINEAR;
-	MAGFILTER =	LINEAR;
+    ASSIGN_TEXTURE(BLENDVOLUMEMAP_TEXTURE)			   // needed for the PC
+    AddressU = CLAMP;
+    AddressV = CLAMP;
+    AddressW = CLAMP;
+    MIPFILTER =	NONE;
+    MINFILTER =	LINEAR;
+    MAGFILTER =	LINEAR;
 };
 
 /*** Structures **************************************************************************************/
 
 struct DepthSpriteOut
 {
-	float4 colour	: COLOR0;
-	// Passing thru depth on the PC (1) isn't needed, (2) seems to cause visual errors on nvidia 7-series gpus
+    float4 colour	: COLOR0;
+    // Passing thru depth on the PC (1) isn't needed, (2) seems to cause visual errors on nvidia 7-series gpus
 #ifndef MOTIONBLUR_DONTPASSTHRUDEPTH
-	float  depth	: DEPTH0;
+    float  depth	: DEPTH0;
 #endif
 };
 
@@ -163,22 +163,22 @@ struct DepthSpriteOut
 // should pack these two, reduce input bandwidth.   may not be significant
 struct VS_INPUT_SCREEN
 {
-	float4 position	: POSITION;
-	float4 tex0		: TEXCOORD0;
+    float4 position	: POSITION;
+    float4 tex0		: TEXCOORD0;
 };
 
 struct VtoP
 {
-	float4 position		: POSITION;
-	float4 tex0			: TEXCOORD0;
+    float4 position		: POSITION;
+    float4 tex0			: TEXCOORD0;
 };
 
 VtoP vertex_shader_passthru(const VS_INPUT_SCREEN IN)
 {
-	VtoP OUT;
-	OUT.position = IN.position;
-	OUT.tex0	= IN.tex0;
-	return OUT;
+    VtoP OUT;
+    OUT.position = IN.position;
+    OUT.tex0	= IN.tex0;
+    return OUT;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -187,38 +187,38 @@ VtoP vertex_shader_passthru(const VS_INPUT_SCREEN IN)
 //
 struct VS_INPUT_MOTIONBLUR
 {
-	float4 position	: POSITION;
-	float4 tex0		: TEXCOORD0;
-	float4 tex1		: TEXCOORD1;
-	float4 tex2		: TEXCOORD2;
-	float4 tex3		: TEXCOORD3;
-	float4 tex4		: TEXCOORD4;
-	float4 tex5		: TEXCOORD5;
-	float4 tex6		: TEXCOORD6;
-	float4 tex7		: TEXCOORD7;
+    float4 position	: POSITION;
+    float4 tex0		: TEXCOORD0;
+    float4 tex1		: TEXCOORD1;
+    float4 tex2		: TEXCOORD2;
+    float4 tex3		: TEXCOORD3;
+    float4 tex4		: TEXCOORD4;
+    float4 tex5		: TEXCOORD5;
+    float4 tex6		: TEXCOORD6;
+    float4 tex7		: TEXCOORD7;
 };
 
 struct VtoP_MOTIONBLUR
 {
-	float4 position		: POSITION;
-	float2 tex[8]		: TEXCOORD0;
+    float4 position		: POSITION;
+    float2 tex[8]		: TEXCOORD0;
 };
 
 /*** Functions ***************************************************************************************/
 
 VtoP_MOTIONBLUR VS_MotionBlur(const VS_INPUT_MOTIONBLUR IN)
 {
-	VtoP_MOTIONBLUR OUT;
-	OUT.position = IN.position;
-	OUT.tex[0] = IN.tex0.xy;
-	OUT.tex[1] = IN.tex1.xy;
-	OUT.tex[2] = IN.tex2.xy;
-	OUT.tex[3] = IN.tex3.xy;
-	OUT.tex[4] = IN.tex4.xy;
-	OUT.tex[5] = IN.tex5.xy;
-	OUT.tex[6] = IN.tex6.xy;
-	OUT.tex[7] = IN.tex7.xy;
-	return OUT;
+    VtoP_MOTIONBLUR OUT;
+    OUT.position = IN.position;
+    OUT.tex[0] = IN.tex0.xy;
+    OUT.tex[1] = IN.tex1.xy;
+    OUT.tex[2] = IN.tex2.xy;
+    OUT.tex[3] = IN.tex3.xy;
+    OUT.tex[4] = IN.tex4.xy;
+    OUT.tex[5] = IN.tex5.xy;
+    OUT.tex[6] = IN.tex6.xy;
+    OUT.tex[7] = IN.tex7.xy;
+    return OUT;
 }
 
 
@@ -227,67 +227,67 @@ VtoP_MOTIONBLUR VS_MotionBlur(const VS_INPUT_MOTIONBLUR IN)
 const float kWeights[8] = { 6, 5, 4, 3, 2, 1, 1, 1 };
 float4 PS_MotionBlur(const VtoP_MOTIONBLUR IN) : COLOR 
 {
-	//float rampCoeff = cvBlurParams.x;
-	float4	result = 0;
+    //float rampCoeff = cvBlurParams.x;
+    float4	result = 0;
 
-	// compute motion blurred image
-	for(int i=0; i < 8; i++)
-	{
-		float4 blur = tex2D( MOTIONBLUR_SAMPLER, IN.tex[i]);
-		//float3 ramp = blur.xyz / (rampCoeff - blur.xyz);	// ramp
-		//blur.xyz = max(blur.xyz, ramp);									// don't want to darken the image
-		//result += blur;// * (weights[i] / 16);
-		result += blur * (kWeights[i] / 23.0f);
-	}
-	//result /= 8;
+    // compute motion blurred image
+    for(int i=0; i < 8; i++)
+    {
+        float4 blur = tex2D( MOTIONBLUR_SAMPLER, IN.tex[i]);
+        //float3 ramp = blur.xyz / (rampCoeff - blur.xyz);	// ramp
+        //blur.xyz = max(blur.xyz, ramp);									// don't want to darken the image
+        //result += blur;// * (weights[i] / 16);
+        result += blur * (kWeights[i] / 23.0f);
+    }
+    //result /= 8;
 
-	//return tex2D( MOTIONBLUR_SAMPLER, IN.tex[0]);
+    //return tex2D( MOTIONBLUR_SAMPLER, IN.tex[0]);
 
-	return result;
+    return result;
 }
 
 // --------------------------------------------------------------------------------------------------
 
 VtoP VS_CompositeBlur(const VS_INPUT_SCREEN IN)
 {
-	VtoP OUT;
-	OUT.position = IN.position;
-	OUT.tex0	= IN.tex0;
-	return OUT;
+    VtoP OUT;
+    OUT.position = IN.position;
+    OUT.tex0	= IN.tex0;
+    return OUT;
 }
 
 
 DepthSpriteOut PS_CompositeBlur(const VtoP IN)
 {
-	DepthSpriteOut OUT;
+    DepthSpriteOut OUT;
 
-	float4 screen = tex2D( DIFFUSE_SAMPLER, IN.tex0.xy );
-	float4 blur   = tex2D( MOTIONBLUR_SAMPLER, IN.tex0.xy );
+    float4 screen = tex2D( DIFFUSE_SAMPLER, IN.tex0.xy );
+    float4 blur   = tex2D( MOTIONBLUR_SAMPLER, IN.tex0.xy );
 
-	float senseOfSpeedScale = cvBlurParams.x; // 0 travelling slow, 1 travelling fast
-	OUT.colour.xyz = lerp(screen.xyz, blur.xyz, blur.w*senseOfSpeedScale);
-	OUT.colour.w = screen.w;
+    float senseOfSpeedScale = cvBlurParams.x; // 0 travelling slow, 1 travelling fast
+    OUT.colour.xyz = lerp(screen.xyz, blur.xyz, blur.w*senseOfSpeedScale);
+    OUT.colour.w = screen.w;
 #ifndef MOTIONBLUR_DONTPASSTHRUDEPTH
-	OUT.depth  = tex2D( DEPTHBUFFER_SAMPLER, IN.tex0.xy).x;
+    OUT.depth  = tex2D( DEPTHBUFFER_SAMPLER, IN.tex0.xy).x;
 #endif
 
-	//OUT.colour = blur;
+    //OUT.colour = blur;
 
-	return OUT;
+    return OUT;
 }
 
 // --------------------------------------------------------------------------------------------------
 float4 PS_PassThru(const VtoP IN) : COLOR
 {
-	float4 OUT;
+    float4 OUT;
 
-	float4 diffuse = tex2D(DIFFUSE_SAMPLER, IN.tex0.xy);	// * IN;
+    float4 diffuse = tex2D(DIFFUSE_SAMPLER, IN.tex0.xy);	// * IN;
 
-	OUT.xyz	= diffuse;
+    OUT.xyz	= diffuse;
 
-	OUT.w =	diffuse.w;
+    OUT.w =	diffuse.w;
 
-	return OUT;
+    return OUT;
 }
 
 // Fake HDR -- ported from ReShade
@@ -304,42 +304,42 @@ float4 HDRPass(const VtoP IN, in float4 result)
     float radius1 = FAKEHDR_RADIUS1;
     float radius2 = FAKEHDR_RADIUS2;
     result = tex2D(DIFFUSE_SAMPLER, IN.tex0.xy);
-	float3 color = result.rgb;
+    float3 color = result.rgb;
 
 
-	float3 bloom_sum1 = tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2(1.5, -1.5) * radius1 * 1).rgb;
-	bloom_sum1 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2(-1.5, -1.5) * radius1 * 1).rgb;
-	bloom_sum1 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2( 1.5,  1.5) * radius1 * 1).rgb;
-	bloom_sum1 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2(-1.5,  1.5) * radius1 * 1).rgb;
-	bloom_sum1 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2( 0.0, -2.5) * radius1 * 1).rgb;
-	bloom_sum1 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2( 0.0,  2.5) * radius1 * 1).rgb;
-	bloom_sum1 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2(-2.5,  0.0) * radius1 * 1).rgb;
-	bloom_sum1 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2( 2.5,  0.0) * radius1 * 1).rgb;
+    float3 bloom_sum1 = tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2(1.5, -1.5) * radius1 * 1).rgb;
+    bloom_sum1 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2(-1.5, -1.5) * radius1 * 1).rgb;
+    bloom_sum1 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2( 1.5,  1.5) * radius1 * 1).rgb;
+    bloom_sum1 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2(-1.5,  1.5) * radius1 * 1).rgb;
+    bloom_sum1 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2( 0.0, -2.5) * radius1 * 1).rgb;
+    bloom_sum1 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2( 0.0,  2.5) * radius1 * 1).rgb;
+    bloom_sum1 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2(-2.5,  0.0) * radius1 * 1).rgb;
+    bloom_sum1 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2( 2.5,  0.0) * radius1 * 1).rgb;
 
-	bloom_sum1 *= 0.005;
+    bloom_sum1 *= 0.005;
 
-	float3 bloom_sum2 = tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2(1.5, -1.5) * radius2 * 1).rgb;
-	bloom_sum2 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2(-1.5, -1.5) * radius2 * 1).rgb;
-	bloom_sum2 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2( 1.5,  1.5) * radius2 * 1).rgb;
-	bloom_sum2 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2(-1.5,  1.5) * radius2 * 1).rgb;
-	bloom_sum2 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2( 0.0, -2.5) * radius2 * 1).rgb;
-	bloom_sum2 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2( 0.0,  2.5) * radius2 * 1).rgb;
-	bloom_sum2 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2(-2.5,  0.0) * radius2 * 1).rgb;
-	bloom_sum2 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2( 2.5,  0.0) * radius2 * 1).rgb;
+    float3 bloom_sum2 = tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2(1.5, -1.5) * radius2 * 1).rgb;
+    bloom_sum2 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2(-1.5, -1.5) * radius2 * 1).rgb;
+    bloom_sum2 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2( 1.5,  1.5) * radius2 * 1).rgb;
+    bloom_sum2 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2(-1.5,  1.5) * radius2 * 1).rgb;
+    bloom_sum2 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2( 0.0, -2.5) * radius2 * 1).rgb;
+    bloom_sum2 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2( 0.0,  2.5) * radius2 * 1).rgb;
+    bloom_sum2 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2(-2.5,  0.0) * radius2 * 1).rgb;
+    bloom_sum2 += tex2D(DIFFUSE_SAMPLER, IN.tex0.xy + float2( 2.5,  0.0) * radius2 * 1).rgb;
 
-	bloom_sum2 *= 0.010;
+    bloom_sum2 *= 0.010;
 
 
 
-	float dist = radius2 - radius1;
-	float3 HDR = (color + (bloom_sum2 - bloom_sum1)) * dist;
-	float3 blend = HDR + color;
-	color = pow(abs(blend), abs(HDRPower)) + HDR; // pow - don't use fractions for HDRpower
-	//result = float4(saturate(blend), 0.0);
+    float dist = radius2 - radius1;
+    float3 HDR = (color + (bloom_sum2 - bloom_sum1)) * dist;
+    float3 blend = HDR + color;
+    color = pow(abs(blend), abs(HDRPower)) + HDR; // pow - don't use fractions for HDRpower
+    //result = float4(saturate(blend), 0.0);
     //result = float4(HDR, 1.0);
     result.xyz = color;
 
-	return result;
+    return result;
 }
 #endif
 
@@ -359,24 +359,24 @@ float4 HDRPass(const VtoP IN, in float4 result)
 
 float4 DoDepthOfField(const VtoP IN, in float4 result, float depth)
 {
-	float zDist			= (1 / (1-depth));
-	float focalDist		= cvDepthOfFieldParams.x;
-	float depthOfField	= cvDepthOfFieldParams.y;
-	float falloff		= cvDepthOfFieldParams.z;
-	float maxBlur		= cvDepthOfFieldParams.w;
-	float blur			= saturate((abs(zDist-focalDist)-depthOfField)*falloff/zDist);
-	float mipLevel		= blur*maxBlur;
-	float3 blurredTex	= tex2Dbias( MISCMAP6_SAMPLER,  float4(IN.tex0.xy, 0, mipLevel) );
-	result				= float4(lerp(result.xyz, blurredTex, saturate(mipLevel)), result.w); 
+    float zDist			= (1 / (1-depth));
+    float focalDist		= cvDepthOfFieldParams.x;
+    float depthOfField	= cvDepthOfFieldParams.y;
+    float falloff		= cvDepthOfFieldParams.z;
+    float maxBlur		= cvDepthOfFieldParams.w;
+    float blur			= saturate((abs(zDist-focalDist)-depthOfField)*falloff/zDist);
+    float mipLevel		= blur*maxBlur;
+    float3 blurredTex	= tex2Dbias( MISCMAP6_SAMPLER,  float4(IN.tex0.xy, 0, mipLevel) );
+    result				= float4(lerp(result.xyz, blurredTex, saturate(mipLevel)), result.w); 
 
-	//result.xyz = saturate((abs(zDist-50)-30)*falloff/zDist);
-	if( cbDrawDepthOfField )
-	{
-		result.x += (1-blur)*0.3;						// draw the depth of field falloff
-		result.xyz += ( blur == 0.0f ) ? 0.5 : 0.0f;	// draw the crital focal point
-	}
+    //result.xyz = saturate((abs(zDist-50)-30)*falloff/zDist);
+    if( cbDrawDepthOfField )
+    {
+        result.x += (1-blur)*0.3;						// draw the depth of field falloff
+        result.xyz += ( blur == 0.0f ) ? 0.5 : 0.0f;	// draw the crital focal point
+    }
 
-	return result;
+    return result;
 }
 
 
@@ -386,43 +386,43 @@ float4 PS_VisualTreatment(const VtoP IN, uniform bool doDepthOfField, uniform bo
     float4	result = HDRPass(IN, result);
 #else
     float4	result;
-	// Full screen image
-	//
-	float4 screenTex = tex2D( DIFFUSE_SAMPLER, IN.tex0.xy );
-	result = screenTex;
+    // Full screen image
+    //
+    float4 screenTex = tex2D( DIFFUSE_SAMPLER, IN.tex0.xy );
+    result = screenTex;
 #endif
-	float depth	= tex2D( DEPTHBUFFER_SAMPLER, IN.tex0.xy ).x;
+    float depth	= tex2D( DEPTHBUFFER_SAMPLER, IN.tex0.xy ).x;
     float	zDist	  = (1 / (1-depth));
 
     // CARBON EDIT - uncomment the following 2 lines to simulate ProStreet
-	// Convert from log space to linear space and clamp[0,1]
-	//result.xyz = saturate(DeCompressColourSpace(result.xyz));
-	//result.xyz = saturate(result.xyz);
+    // Convert from log space to linear space and clamp[0,1]
+    //result.xyz = saturate(DeCompressColourSpace(result.xyz));
+    //result.xyz = saturate(result.xyz);
 
-	// HDR Bloom buffer
+    // HDR Bloom buffer
 #ifndef BLOOM_DISABLE
-	float3 Bloom = (cfBloomScale) * pow(tex2D( BLOOM_SAMPLER, IN.tex0.xy ),1.8) ;
+    float3 Bloom = (cfBloomScale) * pow(tex2D( BLOOM_SAMPLER, IN.tex0.xy ),1.8) ;
 
-	result.xyz =  (1 - ( 1- saturate(2*Bloom))*(1-result.xyz) );  //SCREEN TO GLOW BRIGHT AREAS
+    result.xyz =  (1 - ( 1- saturate(2*Bloom))*(1-result.xyz) );  //SCREEN TO GLOW BRIGHT AREAS
 
-	result.xyz += Bloom*0.4; //ADD
+    result.xyz += Bloom*0.4; //ADD
 #endif
 
     //
-	// Do Depth of Field
-	//
+    // Do Depth of Field
+    //
 #ifndef DONTDODEPTH
-	if( doDepthOfField && cbDepthOfFieldEnabled )	// Compile time branch is optimized out
-	{
-		result = DoDepthOfField(IN, result, depth);
-	}
+    if( doDepthOfField && cbDepthOfFieldEnabled )	// Compile time branch is optimized out
+    {
+        result = DoDepthOfField(IN, result, depth);
+    }
 #endif
 
     // Depth of Field FMV capture stuff
-	//
+    //
 #ifdef RENDER_DEPTH
-	//float zDist	= (1 / (1-depth));
-	result.xyz = (zDist*0.5) / 100;
+    //float zDist	= (1 / (1-depth));
+    result.xyz = (zDist*0.5) / 100;
 #endif
 
     // LUT filter
@@ -433,26 +433,26 @@ float4 PS_VisualTreatment(const VtoP IN, uniform bool doDepthOfField, uniform bo
     result.xyz = lerp(result.xyz, copTreatment, COP_INTRO_SCALE);
 
     // VIGNETTE
-	float4 vignette  = tex2D( MISCMAP2_SAMPLER,  IN.tex0.xy );
-	float mask = vignette.y;
-	float black = 0;
-	result.xyz = lerp(result.xyz, black, saturate(mask) * (VIGNETTE_SCALE) );
+    float4 vignette  = tex2D( MISCMAP2_SAMPLER,  IN.tex0.xy );
+    float mask = vignette.y;
+    float black = 0;
+    result.xyz = lerp(result.xyz, black, saturate(mask) * (VIGNETTE_SCALE) );
 
     float luminance = dot(LUMINANCE_VECTOR, result.xyz);
     // Pursuit / speed breaker
     result.xyz = lerp(result.xyz, luminance / 2.5, saturate(vignette.w) * BREAKER_INTENSITY);
 
     // Allow the NIS's to fade to a colour
-	//
-	if( doColourFade )		// Compile time branch is optimized out
-	{
-		result.xyz = lerp(result.xyz, cvVisualEffectFadeColour.xyz, cvVisualEffectFadeColour.w);
-	}
+    //
+    if( doColourFade )		// Compile time branch is optimized out
+    {
+        result.xyz = lerp(result.xyz, cvVisualEffectFadeColour.xyz, cvVisualEffectFadeColour.w);
+    }
     result.xyz *= FLASH_SCALE;
 
-	// Lens contamination gradient effect
-	//
-	//result.xyz = AddGradient(result, IN.tex0.xy);
+    // Lens contamination gradient effect
+    //
+    //result.xyz = AddGradient(result, IN.tex0.xy);
 
     // bloom test
 #ifndef BLOOM_DISABLE
@@ -461,7 +461,7 @@ float4 PS_VisualTreatment(const VtoP IN, uniform bool doDepthOfField, uniform bo
 #endif
 #endif
 
-	return result;
+    return result;
 }
 
 
@@ -477,29 +477,29 @@ float GetRandomValue( float2 lInPos )
 
 float4 PS_UvesOverCliff(const VtoP IN, uniform bool doColourFade) : COLOR
 {
-	float4	result;
+    float4	result;
 
-	// Full screen image
-	//
-	float4 screenTex = tex2D( DIFFUSE_SAMPLER, IN.tex0.xy );
-	result = screenTex;
+    // Full screen image
+    //
+    float4 screenTex = tex2D( DIFFUSE_SAMPLER, IN.tex0.xy );
+    result = screenTex;
 
-	// HDR Bloom buffer
-	float3 Bloom = (cfBloomScale) * pow(tex2D( BLOOM_SAMPLER, IN.tex0.xy ),1.8) ;
+    // HDR Bloom buffer
+    float3 Bloom = (cfBloomScale) * pow(tex2D( BLOOM_SAMPLER, IN.tex0.xy ),1.8) ;
 
 
-	result.xyz =  (1 - ( 1- saturate(2*Bloom))*(1-result.xyz) );  //SCREEN TO GLOW BRIGHT AREAS
+    result.xyz =  (1 - ( 1- saturate(2*Bloom))*(1-result.xyz) );  //SCREEN TO GLOW BRIGHT AREAS
 
-	result.xyz += Bloom*0.4; //ADD
+    result.xyz += Bloom*0.4; //ADD
 
     // LUT filter
     result.xyz = tex3D(VOLUMEMAP_SAMPLER, result.xyz).xyz;
 
     // VIGNETTE
-	float4 vignette  = tex2D( MISCMAP2_SAMPLER,  IN.tex0.xy );
-	float mask = vignette.y;
-	float black = 0;
-	result.xyz = lerp(result.xyz, black, saturate(mask) * (VIGNETTE_SCALE) );
+    float4 vignette  = tex2D( MISCMAP2_SAMPLER,  IN.tex0.xy );
+    float mask = vignette.y;
+    float black = 0;
+    result.xyz = lerp(result.xyz, black, saturate(mask) * (VIGNETTE_SCALE) );
 
     float luminance = dot(LUMINANCE_VECTOR, result.xyz);
     //float maxChannel = max(max(result.x, result.y), result.z);
@@ -516,11 +516,11 @@ float4 PS_UvesOverCliff(const VtoP IN, uniform bool doColourFade) : COLOR
     result.xyz *= GetRandomValue(result.xy) + 1;
 
     // Allow the NIS's to fade to a colour
-	//
-	if( doColourFade )		// Compile time branch is optimized out
-	{
-		result.xyz = lerp(result.xyz, cvVisualEffectFadeColour.xyz, cvVisualEffectFadeColour.w);
-	}
+    //
+    if( doColourFade )		// Compile time branch is optimized out
+    {
+        result.xyz = lerp(result.xyz, cvVisualEffectFadeColour.xyz, cvVisualEffectFadeColour.w);
+    }
 
-	return result;
+    return result;
 }

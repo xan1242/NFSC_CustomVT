@@ -21,28 +21,28 @@ float4		cvVertexPowerBrightness : cvVertexPowerBrightness;
 
 float4 world_position( float4 screen_pos )
 {
- 	float4 p = mul(screen_pos, cmWorldViewProj);  
-	p.xy += cvScreenOffset.xy * p.w;
+    float4 p = mul(screen_pos, cmWorldViewProj);  
+    p.xy += cvScreenOffset.xy * p.w;
     return p;
 }
 
 float4 screen_position( float4 screen_pos )
 {
-	screen_pos.xy += cvScreenOffset.xy;
+    screen_pos.xy += cvScreenOffset.xy;
     return screen_pos;
 }
 
 float4 CalcVertexColour(float4 colour)
 {
-	float4 result = pow(colour, cvVertexPowerBrightness.x) * cvVertexPowerBrightness.y;
-	result.w = colour.w;
-	return result;
+    float4 result = pow(colour, cvVertexPowerBrightness.x) * cvVertexPowerBrightness.y;
+    result.w = colour.w;
+    return result;
 }
 
 float3 ScaleHeadLightIntensity(float3 colour) 
 {
-	float3 result = colour * cvVertexPowerBrightness.z;
-	return result;
+    float3 result = colour * cvVertexPowerBrightness.z;
+    return result;
 }
 
 
@@ -55,13 +55,13 @@ float3 ScaleHeadLightIntensity(float3 colour)
 #define kCompressCoeff ( 1.0f )
 float3 CompressColourSpace(float3 colour)
 {
-	return colour / (kCompressCoeff+colour);
+    return colour / (kCompressCoeff+colour);
 }
 
 float3 DeCompressColourSpace(float3 colour)
 {
-	float3 clr = max( 0.01, kCompressCoeff-colour );
-	return colour / clr;
+    float3 clr = max( 0.01, kCompressCoeff-colour );
+    return colour / clr;
 }
 
 
@@ -75,36 +75,36 @@ float3 DeCompressColourSpace(float3 colour)
 
 float4 EncodeRGBE8( in float3 rgb )	  
 {
-	float4 vEncoded;
+    float4 vEncoded;
 
     // Determine the largest color component
-	float maxComponent = max( max(rgb.r, rgb.g), rgb.b );
-	
-	// Round to the nearest integer exponent
-	float fExp = ceil( log2(maxComponent) );
+    float maxComponent = max( max(rgb.r, rgb.g), rgb.b );
+    
+    // Round to the nearest integer exponent
+    float fExp = ceil( log2(maxComponent) );
 
     // Divide the components by the shared exponent
-	vEncoded.rgb = rgb / exp2(fExp);
-	
-	// Store the shared exponent in the alpha channel
-	vEncoded.a = (fExp + 128) / 255;
+    vEncoded.rgb = rgb / exp2(fExp);
+    
+    // Store the shared exponent in the alpha channel
+    vEncoded.a = (fExp + 128) / 255;
 
-	return vEncoded;
+    return vEncoded;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
 float3 DecodeRGBE8( in float4 rgbe )
 {
-	float3 vDecoded;
+    float3 vDecoded;
 
     // Retrieve the shared exponent
-	float fExp = rgbe.a * 255 - 128;
-	
-	// Multiply through the color components
-	vDecoded = rgbe.rgb * exp2(fExp);
-	
-	return vDecoded;
+    float fExp = rgbe.a * 255 - 128;
+    
+    // Multiply through the color components
+    vDecoded = rgbe.rgb * exp2(fExp);
+    
+    return vDecoded;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////

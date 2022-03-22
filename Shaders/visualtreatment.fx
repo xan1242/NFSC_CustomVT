@@ -45,69 +45,69 @@
 
 technique visualtreatment
 {
-	pass p0
-	{
-		VertexShader = compile vs_1_1 vertex_shader_passthru();
-		PixelShader	 = compile ps_2_0 PS_VisualTreatment(DO_DOF(false), DO_COLOUR_FADE(false));
-	}
+    pass p0
+    {
+        VertexShader = compile vs_1_1 vertex_shader_passthru();
+        PixelShader	 = compile ps_2_0 PS_VisualTreatment(DO_DOF(false), DO_COLOUR_FADE(false));
+    }
 }
 
 technique visualtreatment_enchanced
 {
-	pass p0
-	{
-		VertexShader = compile vs_1_1 vertex_shader_passthru();
-		PixelShader = compile ps_2_0 PS_VisualTreatment(DO_DOF(true), DO_COLOUR_FADE(true));
-	}
+    pass p0
+    {
+        VertexShader = compile vs_1_1 vertex_shader_passthru();
+        PixelShader = compile ps_2_0 PS_VisualTreatment(DO_DOF(true), DO_COLOUR_FADE(true));
+    }
 }
 
 
 technique motionblur
 {
-	pass p0
-	{
-		VertexShader = compile vs_1_1 VS_MotionBlur();
-		PixelShader	 = compile ps_2_0 PS_MotionBlur();
-	}
+    pass p0
+    {
+        VertexShader = compile vs_1_1 VS_MotionBlur();
+        PixelShader	 = compile ps_2_0 PS_MotionBlur();
+    }
 }
 
 
 
 technique composite_blur
 {
-	pass p0
-	{
-		VertexShader = compile vs_1_1 VS_CompositeBlur();
-		PixelShader  = compile ps_2_0 PS_CompositeBlur();
-	}
+    pass p0
+    {
+        VertexShader = compile vs_1_1 VS_CompositeBlur();
+        PixelShader  = compile ps_2_0 PS_CompositeBlur();
+    }
 }
 
 
 
 technique screen_passthru
 {
-	pass p0
-	{
-		VertexShader = compile vs_1_1 vertex_shader_passthru();
-		PixelShader	 = compile ps_2_0 PS_PassThru();
-	}
+    pass p0
+    {
+        VertexShader = compile vs_1_1 vertex_shader_passthru();
+        PixelShader	 = compile ps_2_0 PS_PassThru();
+    }
 }
 
 
 technique uvesovercliff
 {
-	pass p0
-	{
-		VertexShader = compile vs_1_1 vertex_shader_passthru();
-		PixelShader	 = compile ps_2_0 PS_UvesOverCliff(DO_COLOUR_FADE(true));
-	}
+    pass p0
+    {
+        VertexShader = compile vs_1_1 vertex_shader_passthru();
+        PixelShader	 = compile ps_2_0 PS_UvesOverCliff(DO_COLOUR_FADE(true));
+    }
 }
 
 technique uvesovercliffdarken
 {
-	pass p0
-	{
-		VertexShader = compile vs_1_1 vertex_shader_passthru();
-		PixelShader	 = compile ps_2_0 PS_UvesOverCliff(DO_COLOUR_FADE(true));
-	}
+    pass p0
+    {
+        VertexShader = compile vs_1_1 vertex_shader_passthru();
+        PixelShader	 = compile ps_2_0 PS_UvesOverCliff(DO_COLOUR_FADE(true));
+    }
 }
